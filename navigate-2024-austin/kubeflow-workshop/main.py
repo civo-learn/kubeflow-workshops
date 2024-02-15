@@ -25,7 +25,7 @@ llm = AutoModelForCausalLM.from_pretrained("llama-2-7b-chat.ggmlv3.q4_1.bin",
                                            lib="avx2",
                                            gpu_layers=110, 
                                            threads=8,
-                                           context_length = 4096,
+                                           context_length = 32768,
                                            **config)
 app = fastapi.FastAPI(title="Llama 2")
 app.add_middleware(
