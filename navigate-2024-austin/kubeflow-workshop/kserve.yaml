@@ -1,0 +1,19 @@
+apiVersion: "serving.kserve.io/v1beta1"
+kind: "InferenceService"
+metadata:
+  name: "llama2"
+  namespace: my-profile
+  annotations:
+    "sidecar.istio.io/inject": "false"
+spec:
+  predictor:
+    containers:
+      - image: rishitdagli/kf-civo-llama2-q4-oai:0.1.0
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: "4"
+            memory: "16Gi"
+          requests:
+            cpu: "4"
+            memory: "16Gi"
