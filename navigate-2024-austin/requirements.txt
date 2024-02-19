@@ -1,0 +1,8 @@
+uvicorn
+fastapi
+numpy
+transformers
+ctransformers
+sse_starlette
+anyio
+aiohttp
