@@ -1,0 +1,29 @@
+name: Deploy LLama2 Images to GHCR
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+      push-image:
+        runs-on: ubuntu-latest
+        defaults:
+          run:
+            working-directory: './navigate-2024-austin/kubeflow-workshop'
+        steps:
+          - name: 'Checkout GitHub Action'
+            uses: actions/checkout@main
+
+          - name: 'Login to GitHub Container Registry'
+            uses: docker/login-action@v1
+            with:
+              registry: ghcr.io
+              username: ${{github.actor}}
+              password: ${{secrets.GITHUB_TOKEN}}
+
+          - name: 'Build Inventory Image'
+            run: |
+              docker build . --tag ghcr.io/civo-learn/llama2-kf-oai:latest
+              docker push ghcr.io/civo-learn/llama2-kf-oai:latest
