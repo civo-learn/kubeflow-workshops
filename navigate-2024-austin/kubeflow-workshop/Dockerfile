@@ -1,4 +1,5 @@
 FROM python:3.8-slim
+LABEL org.opencontainers.image.source="https://github.com/civo-learn/kubeflow-workshops"
 
 WORKDIR /app
 
