@@ -1,0 +1,4 @@
+ctransformers
+kfp
+flask
+gevent
