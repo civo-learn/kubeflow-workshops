@@ -8,7 +8,7 @@ metadata:
 spec:
   predictor:
     containers:
-      - image: rishitdagli/kf-civo-llama2-q4-oai:0.1.0
+      - image: ghcr.io/civo-learn/llama2-kf-oai:latest
         imagePullPolicy: IfNotPresent
         resources:
           limits:
